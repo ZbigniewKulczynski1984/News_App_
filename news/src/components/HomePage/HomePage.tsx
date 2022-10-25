@@ -1,13 +1,12 @@
-import {useEffect, useState} from 'react'
-
-    useEffect(() => {
-
-    }, [])
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 const HomePage = () => {
-  return (
-    <div>HomePage</div>
-  )
-}
+	useEffect(() => {
+		axios.get('https://newsapi.org/v2/everything?q=world');
+	}, []);
 
-export default HomePage
+	return <div>HomePage</div>;
+};
+
+export default HomePage;
