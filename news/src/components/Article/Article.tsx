@@ -1,13 +1,17 @@
 import React from 'react';
 import { ArticleProps } from '../../helpers/interfaces';
+import { ListItem, ListItemText, Card } from '@mui/material';
 
 const Article: React.FC<ArticleProps> = ({ art }) => {
 	return (
-		<>
-			<p>{art.url}</p>
-			<p>{art.urlToImage}</p>
-			<p>{art.title}</p>
-		</>
+		<ListItem>
+			<Card variant="outlined" sx={{ mb: '10px' }}>
+				<a href={art.url} style={{ textDecoration: 'none' }} target="_blank">
+					<img src={art.urlToImage} alt={art.title} style={{ width: '100%' }} />
+                    <ListItemText sx={{color: "black"}}>{art.title}</ListItemText>
+				</a>
+			</Card>
+		</ListItem>
 	);
 };
 
