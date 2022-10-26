@@ -3,14 +3,14 @@ import axios from 'axios';
 import { API_KEY } from '../../helpers/helpers';
 import { Typography, List } from '@mui/material';
 import Article from '../Article/Article';
-
+import { ArticleObj } from '../../helpers/interfaces';
 
 const HomePage = () => {
 	const [todaysArticles, setTodaysArticles] = useState([]);
 
 	useEffect(() => {
 		const today = new Date();
-		
+
 		const day =
 			today.getDate() - 1 < 10
 				? `0${today.getDate() - 1}`
@@ -43,17 +43,17 @@ const HomePage = () => {
 			<Typography
 				variant="h2"
 				align="center"
-				sx={{ fontSize: '2rem', fontWeight: '200', my: '0.8rem'}}
+				sx={{ fontSize: '2rem', fontWeight: '200', my: '0.8rem' }}
 			>
 				Today's hottest news:
 			</Typography>
 			<List sx={{ width: '100%', alignContent: 'center' }}>
-      </List>
-	  
-	  {/* {todaysArticles.length !== 0 && (
-        <Article art={todaysArticles[0]} key={1} />
-      )} */}
-	</>
+				{todaysArticles.length !== 0 &&
+					todaysArticles.map((article: ArticleObj) => {
+						return <Article art={article} key={article.title} />;
+					})}
+			</List>
+		</>
 	);
 };
 
