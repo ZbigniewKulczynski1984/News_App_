@@ -5,7 +5,6 @@ export interface ArticleObj {
   }
   
   export interface ArticleProps {
-    art: ArticleObj;
     key: number;
   }
   
