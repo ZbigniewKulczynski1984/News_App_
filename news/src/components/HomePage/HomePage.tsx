@@ -50,7 +50,8 @@ const HomePage = () => {
 			<List sx={{ width: '100%', alignContent: 'center' }}>
 				{todaysArticles.length !== 0 &&
 					todaysArticles.map((article: ArticleObj) => {
-						return <Article art={article} key={article.title} />;
+						return <Article art={article} 
+						key={article.title} />;
 					})}
 			</List>
 		</>
