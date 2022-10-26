@@ -8,8 +8,7 @@ const HomePage = () => {
 
 	useEffect(() => {
 		const today = new Date();
-		console.log(today);
-
+		
 		const day =
 			today.getDate() - 1 < 10
 				? `0${today.getDate() - 1}`
@@ -42,12 +41,11 @@ const HomePage = () => {
 			<Typography
 				variant="h2"
 				align="center"
-				sx={{ fontSize: '2rem', mb: '0.8rem' }}
+				sx={{ fontSize: '2rem', fontWeight: '200', my: '0.8rem'}}
 			>
 				Today's hottest news:
 			</Typography>
 			<List sx={{ width: '100%', alignContent: 'center' }}>
-
       </List>
 		</>
 	);
