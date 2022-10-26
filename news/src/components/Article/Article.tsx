@@ -1,15 +1,14 @@
-import React from 'react'
-import { ArticleObj } from "../../helpers/interfaces";
-import { ArticleProps } from "../../helpers/interfaces";
+import React from 'react';
+import { ArticleProps } from '../../helpers/interfaces';
 
-const Article = () => {
-  return (
-    <div>Article
-    <p>url</p>
-    <p>urlToImage</p>
-    <p>title</p>
-    </div>
-  )
-}
+const Article: React.FC<ArticleProps> = ({ art }) => {
+	return (
+		<>
+			<p>{art.url}</p>
+			<p>{art.urlToImage}</p>
+			<p>{art.title}</p>
+		</>
+	);
+};
 
-export default Article
+export default Article;

@@ -49,7 +49,11 @@ const HomePage = () => {
 			</Typography>
 			<List sx={{ width: '100%', alignContent: 'center' }}>
       </List>
-		</>
+	  
+	  {todaysArticles.length !== 0 && (
+        <Article art={todaysArticles[0]} key={1} />
+      )}
+	</>
 	);
 };
 
