@@ -1,17 +1,25 @@
-import React from "react";
-import { Typography, TextField, Button, Card } from "@mui/material";
+import { Button, Card, TextField, Typography } from "@mui/material";
 import { useForm } from "react-hook-form";
 import { RegisterFormData } from "../../helpers/interfaces";
+import { auth } from "../../firebaseConfig";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 const RegisterPage = () => {
   const { register, handleSubmit } = useForm<RegisterFormData>();
 
-  const logData = (data: RegisterFormData) => console.log(data);
+  const registerUser = ({ email, password, password2 }: RegisterFormData) => {
+    if (password === password2) {
+      createUserWithEmailAndPassword(auth, email, password)
+        .then(() => console.log("Succesfully registered a user"))
+        .catch((err) => console.error(err.message));
+    }
+   
+  };
 
   return (
     <Card sx={{ mt: "1.3rem", p: "10px" }}>
       <form
         style={{ display: "flex", flexDirection: "column" }}
-        onSubmit={handleSubmit(logData)}
+        onSubmit={handleSubmit(registerUser)}
       >
         <Typography align="center" variant="h2" sx={{ fontSize: "1.5rem" }}>
           Register new account
