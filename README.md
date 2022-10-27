@@ -1,5 +1,9 @@
 # React_24.10.22
 
-##Typescript, Material UI
+##Typescript
+- Axios
+- React hook form
+- React router
+- MUI
 
 ##NEWS APP
