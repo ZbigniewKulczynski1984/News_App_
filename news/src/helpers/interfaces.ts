@@ -1,11 +1,16 @@
 export interface ArticleObj {
-    url: string;
-    urlToImage: string;
-    title: string;
-  }
-  
-  export interface ArticleProps {
-    art: ArticleObj;
-    key: string;
-  }
-  
+	url: string;
+	urlToImage: string;
+	title: string;
+}
+
+export interface ArticleProps {
+	art: ArticleObj;
+	key: string;
+}
+
+export interface RegisterFormData {
+	email: string;
+	password: string;
+	password2: string;
+}
