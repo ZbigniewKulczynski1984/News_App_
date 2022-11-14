@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { RegisterFormData } from "../../helpers/interfaces";
 import { auth } from "../../firebaseConfig";
 import { createUserWithEmailAndPassword } from "firebase/auth";
+
 const RegisterPage = () => {
   const { register, handleSubmit } = useForm<RegisterFormData>();
 
@@ -11,6 +12,8 @@ const RegisterPage = () => {
       createUserWithEmailAndPassword(auth, email, password)
         .then(() => console.log("Succesfully registered a user"))
         .catch((err) => console.error(err.message));
+    }else {
+        alert('Passwords are not equal!!!');
     }
    
   };
