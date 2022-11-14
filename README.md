@@ -5,5 +5,6 @@
 - React hook form
 - React router
 - MUI
+- Firebase
 
 ##NEWS APP
