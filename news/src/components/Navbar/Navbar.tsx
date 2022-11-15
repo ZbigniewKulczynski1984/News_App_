@@ -10,10 +10,11 @@ import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import MenuItem from '@mui/material/MenuItem';
 import { Link } from 'react-router-dom';
+import { NavbarProps } from "../../helpers/interfaces";
 
 const pages = ['Home', 'Search'];
 
-const Navbar = () => {
+const Navbar: React.FC<NavbarProps> = ({ loggedIn }) => {
 	const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
 
 	const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
@@ -86,7 +87,7 @@ const Navbar = () => {
 							textDecoration: 'none',
 						}}
 					>
-						SDA NEWS
+						NEWS
 					</Typography>
 					<Box sx={{ flexGrow: 0 }}>
 						<Link to="/login" style={{ textDecoration: 'none' }}>

@@ -17,3 +17,7 @@ export interface ArticleObj {
   export interface RegisterFormData extends LoginFormData {
 	password2: string;
   }
+
+  export interface NavbarProps {
+	loggedIn: boolean;
+  }
