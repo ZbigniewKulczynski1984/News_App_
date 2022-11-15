@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginPage from "./components/LoginPage/LoginPage";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./firebaseConfig";
+import UserPage from "./components/UserPage/UserPage";
 
 
 
@@ -29,6 +30,7 @@ function App() {
 					<Route path="/" element={<HomePage />} />
 					<Route path="/register" element={<RegisterPage />} />
 					<Route path="/login" element={<LoginPage />} />
+					<Route path="/user" element={<UserPage loggedIn={loggedIn} />} />
 				</Routes>
 				<HomePage />
 			</BrowserRouter>
