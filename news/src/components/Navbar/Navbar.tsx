@@ -9,8 +9,9 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import MenuItem from '@mui/material/MenuItem';
+import Button from "@mui/material/Button";
 import { Link } from 'react-router-dom';
-import { NavbarProps } from "../../helpers/interfaces";
+import { NavbarProps } from '../../helpers/interfaces';
 
 const pages = ['Home', 'Search'];
 
@@ -62,7 +63,7 @@ const Navbar: React.FC<NavbarProps> = ({ loggedIn }) => {
 								<Link
 									key={page}
 									to={page === 'Home' ? '/' : page.toLowerCase()}
-                  style={{textDecoration: "none", color: "black"}}
+									style={{ textDecoration: 'none', color: 'black' }}
 								>
 									<MenuItem onClick={handleCloseNavMenu}>
 										<Typography textAlign="center">{page}</Typography>
@@ -90,10 +91,19 @@ const Navbar: React.FC<NavbarProps> = ({ loggedIn }) => {
 						NEWS
 					</Typography>
 					<Box sx={{ flexGrow: 0 }}>
-						<Link to="/login" style={{ textDecoration: 'none' }}>
-							<IconButton sx={{ p: 0 }}>
-								<Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-							</IconButton>
+						<Link
+							to={loggedIn ? '/user' : '/login'}
+							style={{ textDecoration: 'none' }}
+						>
+							{loggedIn ? (
+								<IconButton sx={{ p: 0 }}>
+									<Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+								</IconButton>
+							) : (
+								<Button sx={{ my: 2, color: 'white', display: 'block' }}>
+									Log in
+								</Button>
+							)}
 						</Link>
 					</Box>
 				</Toolbar>
