@@ -3,6 +3,7 @@ import { NavbarProps as UserPageProps } from "../../helpers/interfaces";
 import { auth } from "../../firebaseConfig";
 import { Typography, Button } from "@mui/material";
 import { signOut } from "firebase/auth";
+import ProfilePhotoForm from "../ProfilePhotoForm/ProfilePhotoForm";
 const UserPage: React.FC<UserPageProps> = ({ loggedIn }) => {
   return (
     <>
@@ -27,6 +28,7 @@ const UserPage: React.FC<UserPageProps> = ({ loggedIn }) => {
           >
             {auth.currentUser.email}
           </Typography>
+          <ProfilePhotoForm />
           <Button
             variant="outlined"
             sx={{ display: "block", mx: "auto", my: "1rem" }}
