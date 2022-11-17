@@ -114,7 +114,9 @@ const Navbar: React.FC<NavbarProps> = ({ loggedIn }) => {
             >
               {loggedIn ? (
                 <IconButton sx={{ p: 0 }}>
+                  {profilePhoto !== "/" && (
                   <Avatar alt="Remy Sharp" src={profilePhoto} />
+                )}
                 </IconButton>
               ) : (
                 <Button sx={{ my: 2, color: "white", display: "block" }}>
