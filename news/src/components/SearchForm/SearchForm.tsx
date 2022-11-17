@@ -1,12 +1,13 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { SearchFormData } from "../../helpers/interfaces";
+import { SearchFormData, SearchFormProps } from "../../helpers/interfaces";
 import { TextField, Button } from "@mui/material";
-const SearchForm = () => {
+
+const SearchForm: React.FC<SearchFormProps> = ({ setKeyword }) => {
   const { register, handleSubmit } = useForm<SearchFormData>();
 
   const liftKeywordUp = ({ keyword }: SearchFormData) => {
-    console.log(keyword);
+    setKeyword(keyword);
   };
 
   return (

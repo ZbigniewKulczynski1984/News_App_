@@ -3,6 +3,9 @@ import axios from "axios";
 import { API_KEY } from "../../helpers/helpers";
 import SearchForm from "../SearchForm/SearchForm";
 import { List } from "@mui/material";
+import { ArticleObj } from "../../helpers/interfaces";
+import Article from "../Article/Article";
+
 const SearchPage = () => {
   const [keyword, setKeyword] = useState("");
   const [articles, setArticles] = useState([]);
@@ -15,6 +18,7 @@ const SearchPage = () => {
         )
         .then((data) => {
           setArticles(data.data.articles);
+          console.log("dziala");
         })
         .catch((err) => console.error(err.message));
     }
@@ -22,14 +26,19 @@ const SearchPage = () => {
 
   return (
     <>
-      <SearchForm />
+      <SearchForm setKeyword={setKeyword} />
       <List
         sx={{
           width: "100%",
           bgcolor: "background.paper",
           alignContent: "center",
         }}
-      ></List>
+      >
+        {articles.length > 0 &&
+          articles.map((art: ArticleObj) => {
+            return <Article art={art} key={art.title} />;
+          })}
+      </List>
     </>
   );
 };
