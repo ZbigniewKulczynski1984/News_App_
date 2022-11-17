@@ -1,42 +1,35 @@
 import { useState, useEffect } from "react";
-import SearchForm from "../SearchForm/SearchForm";
 import axios from "axios";
 import { API_KEY } from "../../helpers/helpers";
-import Article from "../Article/Article";
+import SearchForm from "../SearchForm/SearchForm";
 import { List } from "@mui/material";
-import { ArticleObj } from "../../helpers/interfaces";
-
 const SearchPage = () => {
-  const [keyword, setKeyword] = useState<string>("");
+  const [keyword, setKeyword] = useState("");
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
-    if (keyword) {
+    if (keyword !== "") {
       axios
         .get(
-          `https://newsapi.org/v2/everything?q=${keyword}&from=2022-11-01&language=en&sortBy=popularity&apiKey=${API_KEY}`
+          `https://newsapi.org/v2/everything?q=${keyword}&from=2022-11-14&language=en&sortBy=popularity&apiKey=${API_KEY}`
         )
         .then((data) => {
           setArticles(data.data.articles);
-        });
+        })
+        .catch((err) => console.error(err.message));
     }
   }, [keyword]);
 
- 
   return (
     <>
-      <SearchForm setKeyword={setKeyword} />
+      <SearchForm />
       <List
         sx={{
           width: "100%",
           bgcolor: "background.paper",
           alignContent: "center",
         }}
-      >
-        {articles.map((art: ArticleObj) => {
-          return <Article art={art} key={art.title} />;
-        })}
-      </List>
+      ></List>
     </>
   );
 };
